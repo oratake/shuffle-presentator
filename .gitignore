@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 # oratake self
-./src/presentatorList.ts
+src/presentatorList.ts
