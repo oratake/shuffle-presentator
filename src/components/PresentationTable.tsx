@@ -24,7 +24,7 @@ const PresentationTable: React.FC<PresentationTableProps> = ({ data }) => {
           <tr key={item.id}>
             <td>{item.id}</td>
             <td>{item.title}</td>
-            <td>{item.member}</td>
+            <td>{dekosuke(item.member)}</td>
           </tr>
         ))}
       </tbody>
