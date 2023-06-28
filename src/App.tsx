@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import PresentationTable from './components/PresentationTable';
 import { presentatorList } from './presentatorList';
 
@@ -15,10 +16,22 @@ const shuffleData = () => {
 const shuffledData = shuffleData();
 
 function App() {
+  const [currentPresentatorList, setCurrentPresentatorList] = useState(shuffledData);
+
+  const handleShuffle = () => {
+    const newShuffledData = shuffleData();
+    setCurrentPresentatorList(newShuffledData);
+  }
+
+  const ShuffleButton = () => {
+    return <button onClick={handleShuffle}>Shuffle</button>;
+  }
+
   return (
     <>
       <h1>発表順</h1>
-      <PresentationTable data={shuffledData} />
+      <ShuffleButton />
+      <PresentationTable data={currentPresentatorList} />
     </>
   );
 };
