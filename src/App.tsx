@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import PresentationTable from './components/PresentationTable';
 import { presentatorList } from './presentatorList';
+import useInterval from './useInterval';
 
 const shuffleData = () => {
   const shuffled = [...presentatorList];
@@ -23,20 +24,12 @@ function App() {
     setIsShuffling(prevState => !prevState);
   }
 
-  useEffect(() => {
-    let interval: number;
-
+  useInterval(() => {
     if (isShuffling) {
-      interval = window.setInterval(() => {
-        const newShuffledData = shuffleData();
-        setCurrentPresentatorList(newShuffledData);
-      }, 200);
+      const newShuffledData = shuffleData();
+      setCurrentPresentatorList(newShuffledData);
     }
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, [isShuffling]);
+  }, 200);
 
   const ShuffleButton = () => {
     return (
