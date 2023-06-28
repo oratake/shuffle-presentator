@@ -1,3 +1,4 @@
+import PresentationTable from './components/PresentationTable';
 import { presentatorList } from './presentatorList';
 
 const shuffleData = () => {
@@ -17,24 +18,7 @@ function App() {
   return (
     <>
       <h1>発表順</h1>
-      <table border={1}>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>発表タイトル</th>
-            <th>リベ名</th>
-          </tr>
-        </thead>
-        <tbody>
-          {shuffledData.map(item => (
-            <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.title}</td>
-              <td>{item.member}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <PresentationTable data={shuffledData} />
     </>
   );
 };
