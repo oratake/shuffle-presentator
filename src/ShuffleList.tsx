@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import presentatorList from './presentatorList.ts';
+import { presentatorList } from './presentatorList.ts';
 import {
   AppShell,
   Group,
